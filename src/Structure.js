@@ -5,6 +5,7 @@ import Cards from './Cards';
 import './Structure.css';
 import App from './App';
 
+
 const Structure = () => {
     const [cardNumber, setCardNumber] = useState(1);
 
@@ -23,8 +24,8 @@ const Structure = () => {
 
                 <button className="blue-buttons"> Edit </button>
                 <button className="blue-buttons"> Delete </button>
-                <button className="blue-buttons"  id="add-form"> New  </button>
                 
+                < Form />
 
 
                 <button className="next-button" onClick={() => {

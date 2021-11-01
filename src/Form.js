@@ -11,9 +11,9 @@ const Form = ({ data, setCards }) => {
   const [title, setTitle] = useState("");
   const [favMovies, setfavMovies] = useState("");
 
-  const updateId = (e) => {
-    setID(id++);
-  };
+  // const updateId = (e) => {
+  //   setID(id++);
+  // };
 
   const updateFirstName = (e) => {
     setFirstName(e.target.value);
@@ -47,9 +47,7 @@ const Form = ({ data, setCards }) => {
     e.preventDefault();
     // add card and update the cards
     setCards([
-      ...data,
       {
-        id: id,
         firstName: data.name.first,
         lastName: data.name.last,
         city: data.city,
@@ -58,22 +56,25 @@ const Form = ({ data, setCards }) => {
         title: data.title,
         favMovies: [data.favoriteMovies]
       }
-      
+
     ]);
     
   };
 
 
   return (
-    <form onSubmit={submitForm} id="add-form">
-      <input type="text" onChange={updateFirstName} value={firstName} />
-      <input type="text" onChange={updateLastName} value={lastName} />
-      <input type="text" onChange={updateCity} value={city} />
-      <input type="text" onChange={updateCountry} value={country} />
-      <input type="text" onChange={updateEmployer} value={employer} />
-      <input type="text" onChange={updateTitle} value={title} /> 
-      <input type="text" onChange={updateFavMovies} value={favMovies} /> 
-    </form>
+    <div>
+      <form onSubmit={submitForm} id="add-form">
+        <input type="text" placeholder="First Name" onChange={updateFirstName} value={firstName} />
+        <input type="text" placeholder="Last Name" onChange={updateLastName} value={lastName} />
+        <input type="text" placeholder="City" onChange={updateCity} value={city} />
+        <input type="text" placeholder="Country" onChange={updateCountry} value={country} />
+        <input type="text" placeholder="Employer" onChange={updateEmployer} value={employer} />
+        <input type="text" placeholder="Job Title" onChange={updateTitle} value={title} /> 
+        <input type="text" placeholder="Favorite Movies" onChange={updateFavMovies} value={favMovies} /> 
+        <button className="blue-buttons"  id="add-form"> New  </button>
+      </form>
+    </div>
   );
 };
 
